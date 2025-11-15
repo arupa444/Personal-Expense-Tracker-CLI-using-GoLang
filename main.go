@@ -4,6 +4,7 @@ import (
     "fmt"
     "os"
 	"path/filepath"
+	"CLIPacks/Utils"
 )
 
 func main(){
@@ -21,14 +22,12 @@ func main(){
         return
     }
 	defer file.Close()
-	_, err := file.WriteString("""package try
-	import(
-	    "os"
-	    "fmt"
-	)""")
+
+	_, err = file.WriteString("package trio\n\nimport(\n\t\"fmt\"\n)\n\nfunc Loon(){\nfmt.Println(\"Hey bro i coded it...\")\n}")
 	if err != nil{
-	    fmt.Println("Error while writing", err)
+	    fmt.Println("Error while writing", err, file)
 	    return
 	}
-
+    fmt.Println("Created and wrote some syntax's on the create file")
+    trio.Loon()
 }
