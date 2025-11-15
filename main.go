@@ -14,8 +14,6 @@ func main(){
         return
     }
 
-    fmt.Println("Created myDir successfully")
-
     filePath := filepath.Join(utils, "try.go")
     file, err := os.Create(filePath)
     if err != nil{
@@ -23,4 +21,14 @@ func main(){
         return
     }
 	defer file.Close()
+	_, err := file.WriteString("""package try
+	import(
+	    "os"
+	    "fmt"
+	)""")
+	if err != nil{
+	    fmt.Println("Error while writing", err)
+	    return
+	}
+
 }
