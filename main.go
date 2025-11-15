@@ -3,17 +3,24 @@ package main
 import (
     "fmt"
     "os"
+	"path/filepath"
 )
 
 func main(){
-    files, err := os.ReadDir("Utils")
+	utils := "Utils"
+    err := os.MkdirAll(utils, 0755)
     if err != nil{
         fmt.Println("Error while creating a dict : ",err)
         return
     }
-    fmt.Println("Created myDir successfully and the files are", files)
-    for _, file := range files{
-        fmt.Println(file.Name())
-        fmt.Println(file.IsDir())
+
+    fmt.Println("Created myDir successfully")
+
+    filePath := filepath.Join(utils, "try.go")
+    file, err := os.Create(filePath)
+    if err != nil{
+        fmt.Println("Error while creating a file : ",err)
+        return
     }
+	defer file.Close()
 }
