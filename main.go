@@ -6,10 +6,10 @@ import (
 )
 
 func main(){
-    err := os.Mkdir("myDir", 0755)
+    files, err := os.ReadDir("Utils")
     if err != nil{
         fmt.Println("Error while creating a dict : ",err)
         return
     }
-    fmt.Println("Created myDir successfully")
+    fmt.Println("Created myDir successfully and the files are", files)
 }
