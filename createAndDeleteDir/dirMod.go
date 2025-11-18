@@ -9,7 +9,6 @@ import (
 var savings string = "savings"
 var current string = "current"
 
-
 func CreateSavingsDirectoriesToStoreTheDB(){
     if _, err := os.Stat(savings); os.IsNotExist(err){
         err1 := os.MkdirAll(savings, 0755)
