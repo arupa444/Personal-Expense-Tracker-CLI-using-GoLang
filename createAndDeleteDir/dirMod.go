@@ -10,15 +10,31 @@ import (
 var savings string = "savings"
 var current string = "current"
 
-func CreateSavingsAndCurrentDirectoriesToStoreTheDB(){
-    err1 := os.MkdirAll(savings, 0755)
-    err2 := os.MkdirAll(current, 0755)
-    err := errors.Join(err1, err2)
-    if err != nil{
-        fmt.Println("While creating an savings & an current directory account we found : ", err)
-        return
+func CreateSavingsAndCurrentDirectoriesToStoreTheDB()bool{
+    if _, err := os.Stat(savings); os.IsNotExist(err){
+        err1 := os.MkdirAll(savings, 0755)
+        if err1 != nil{
+            fmt.Println("While creating an savings & an current directory account we found : ", err1)
+            return
+        }
+        fmt.Println("Created an savings account successfully")
+    }else{
+        fmt.Println("savings account already exists")
     }
-    fmt.Println("Created an savings and an current account successfully")
+
+
+    if _, err := os.Stat(current); os.IsNotExist(err){
+        err2 := os.MkdirAll(current, 0755)
+        if err2 != nil{
+            fmt.Println("While creating an savings & an current directory account we found : ", err2)
+            return
+        }
+        fmt.Println("Created an current account successfully")
+    }else{
+        fmt.Println("current account already exists")
+    }
+
+    return
 }
 
 func CreateSavingsAndCurrentFilesToStoreTheDB(){
