@@ -3,32 +3,20 @@ package main
 import (
     "fmt"
     "os"
-	"path/filepath"
-	"CLIPacks/Utils"
+    "errors"
 )
 
+func createSavingsAndCurrentDirectoriesToStoreTheDB(){
+    err1 := os.Mkdir("saving", 0755)
+    err2 := os.Mkdir("current", 0755)
+    err := errors.Join(err1, err2)
+    if err != nil{
+        fmt.Println("While creating an savings & an current account we found : ", err)
+        return
+    }
+    fmt.Println("Created an savings and an current account")
+}
+
 func main(){
-	utils := "Utils"
-    err := os.MkdirAll(utils, 0755)
-    if err != nil{
-        fmt.Println("Error while creating a dict : ",err)
-        return
-    }
-
-    filePath := filepath.Join(utils, "try.go")
-    file, err := os.Create(filePath)
-    if err != nil{
-        fmt.Println("Error while creating a file : ",err)
-        return
-    }
-	defer file.Close()
-
-	_, err = file.WriteString("package trio\n\nimport(\n\t\"fmt\"\n)\n\nfunc Loon(){\nfmt.Println(\"Hey bro i coded it...\")\n}")
-	if err != nil{
-	    fmt.Println("Error while writing", err, file)
-	    return
-	}
-    fmt.Println("Created and wrote some syntax's on the create file")
-
-    trio.Loon()
+    createSavingsAndCurrentDirectoriesToStoreTheDB();
 }
