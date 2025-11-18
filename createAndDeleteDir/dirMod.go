@@ -49,3 +49,28 @@ func CreateSavingsAndCurrentFilesToStoreTheDB(){
     defer file2.Close()
     fmt.Println("Created files successfully")
 }
+
+func CreateSavingsDirectoriesToStoreTheDB(){
+    if _, err := os.Stat(savings); os.IsNotExist(err){
+        err1 := os.MkdirAll(savings, 0755)
+        if err1 != nil{
+            fmt.Println("While creating an savings & an current directory account we found : ", err1)
+            return
+        }
+        fmt.Println("Created an savings account successfully")
+    }else{
+        fmt.Println("savings account already exists")
+    }
+}
+
+
+func CreateSavingsFilesToStoreTheDB(){
+    createFile := filepath.Join(savings, "savingsAccountDB.json")
+    file, err := os.Create(createFile)
+    if err != nil{
+        fmt.Println("while creating an savings and current file we found : ", err)
+        return
+    }
+    defer file.Close()
+    fmt.Println("Created savings account files successfully")
+}
