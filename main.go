@@ -6,4 +6,5 @@ import (
 
 func main(){
     dirMod.CreateSavingsAndCurrentDirectoriesToStoreTheDB();
+    dirMod.CreateSavingsAndCurrentFilesToStoreTheDB();
 }
