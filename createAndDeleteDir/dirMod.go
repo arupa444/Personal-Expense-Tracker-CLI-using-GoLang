@@ -3,7 +3,6 @@ package dirMod
 import (
     "fmt"
     "os"
-    "errors"
     "path/filepath"
 )
 
