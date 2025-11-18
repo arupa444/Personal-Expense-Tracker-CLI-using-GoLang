@@ -6,7 +6,7 @@ import (
     "errors"
 )
 
-func createSavingsAndCurrentDirectoriesToStoreTheDB(){
+func CreateSavingsAndCurrentDirectoriesToStoreTheDB(){
     err1 := os.Mkdir("saving", 0755)
     err2 := os.Mkdir("current", 0755)
     err := errors.Join(err1, err2)
