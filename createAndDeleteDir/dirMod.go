@@ -10,7 +10,7 @@ import (
 var savings string = "savings"
 var current string = "current"
 
-func CreateSavingsAndCurrentDirectoriesToStoreTheDB()bool{
+func CreateSavingsAndCurrentDirectoriesToStoreTheDB(){
     if _, err := os.Stat(savings); os.IsNotExist(err){
         err1 := os.MkdirAll(savings, 0755)
         if err1 != nil{
@@ -33,8 +33,6 @@ func CreateSavingsAndCurrentDirectoriesToStoreTheDB()bool{
     }else{
         fmt.Println("current account already exists")
     }
-
-    return
 }
 
 func CreateSavingsAndCurrentFilesToStoreTheDB(){
