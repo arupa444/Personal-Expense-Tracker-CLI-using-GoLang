@@ -11,7 +11,6 @@ var savings string = "savings"
 var current string = "current"
 
 func CreateSavingsAndCurrentDirectoriesToStoreTheDB(){
-    fmt.Println(os.IsExist())
     err1 := os.MkdirAll(savings, 0755)
     err2 := os.MkdirAll(current, 0755)
     err := errors.Join(err1, err2)
