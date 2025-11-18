@@ -24,18 +24,6 @@ func CreateSavingsDirectoriesToStoreTheDB(){
 }
 
 
-func CreateSavingsFilesToStoreTheDB(){
-    createFile := filepath.Join(savings, "savingsAccountDB.json")
-    file, err := os.Create(createFile)
-    if err != nil{
-        fmt.Println("while creating an savings and current file we found : ", err)
-        return
-    }
-    defer file.Close()
-    fmt.Println("Created savings account files successfully")
-}
-
-
 func CreateCurrentDirectoriesToStoreTheDB(){
     if _, err := os.Stat(current); os.IsNotExist(err){
         err2 := os.MkdirAll(current, 0755)
@@ -49,8 +37,21 @@ func CreateCurrentDirectoriesToStoreTheDB(){
     }
 }
 
+
+func CreateSavingsFilesToStoreTheDB(){
+    createFile := filepath.Join(savings, "savingsAccountDB.json")
+    file, err := os.Create(createFile)
+    if err != nil{
+        fmt.Println("while creating an savings and current file we found : ", err)
+        return
+    }
+    defer file.Close()
+    fmt.Println("Created savings account files successfully")
+}
+
+
 func CreateCurrentFilesToStoreTheDB(){
-    createFile = filepath.Join(current, "currentAccountDB.json")
+    createFile := filepath.Join(current, "currentAccountDB.json")
     file, err := os.Create(createFile)
     if err != nil{
         fmt.Println("while creating an savings and current file we found : ", err)
