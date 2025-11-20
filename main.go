@@ -1,7 +1,7 @@
 package main
 
 import (
-    "github.com/arupa444/Personal-Expense-Tracker-CLI-using-GoLang/createAndDeleteDir"
+    "github.com/arupa444/Personal-Expense-Tracker-CLI-using-GoLang/utils"
 )
 
 func main(){
