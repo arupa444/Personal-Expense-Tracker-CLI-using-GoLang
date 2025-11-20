@@ -47,8 +47,8 @@ func CreateSavingsFilesToStoreTheDB(){
     defer file.Close()
     fmt.Println("Created savings account files successfully")
 
-    createFile := filepath.Join(savings, "infoAboutYourSavingAccount.json")
-    file, err := os.Create(createFile)
+    createFile = filepath.Join(savings, "infoAboutYourSavingAccount.json")
+    file, err = os.Create(createFile)
     if err != nil{
         fmt.Println("while creating an saving info account file we found : ", err)
         return
