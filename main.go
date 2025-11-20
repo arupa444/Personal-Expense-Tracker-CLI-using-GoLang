@@ -5,7 +5,7 @@ package main
 // )
 
 func main(){
-
+// directory creation
 // //     To create the saving account dir
 //     dirMod.CreateSavingsDirectoriesToStoreTheDB()
 // //     To create the saving account file in the dir
