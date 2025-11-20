@@ -38,14 +38,23 @@ func CreateCurrentDirectoriesToStoreTheDB(){
 
 
 func CreateSavingsFilesToStoreTheDB(){
-    createFile := filepath.Join(savings, "savingsAccountDB.json")
+    createFile := filepath.Join(savings, "savingsAccountTransitionDB.json")
     file, err := os.Create(createFile)
     if err != nil{
-        fmt.Println("while creating an savings and current file we found : ", err)
+        fmt.Println("while creating an savings file we found : ", err)
         return
     }
     defer file.Close()
     fmt.Println("Created savings account files successfully")
+
+    createFile := filepath.Join(savings, "infoAboutYourSavingAccount.json")
+    file, err := os.Create(createFile)
+    if err != nil{
+        fmt.Println("while creating an saving info account file we found : ", err)
+        return
+    }
+    defer file.Close()
+    fmt.Println("Created saving info account files successfully")
 }
 
 
