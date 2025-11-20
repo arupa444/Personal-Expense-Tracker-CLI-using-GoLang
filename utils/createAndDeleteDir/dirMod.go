@@ -41,7 +41,7 @@ func CreateSavingsFilesToStoreTheDB(){
     createFile := filepath.Join(savings, "savingsAccountTransitionDB.json")
     file, err := os.Create(createFile)
     if err != nil{
-        fmt.Println("while creating an savings file we found : ", err)
+        fmt.Println("while creating a savings file we found : ", err)
         return
     }
     defer file.Close()
@@ -50,7 +50,7 @@ func CreateSavingsFilesToStoreTheDB(){
     createFile = filepath.Join(savings, "infoAboutYourSavingAccount.json")
     file, err = os.Create(createFile)
     if err != nil{
-        fmt.Println("while creating an saving info account file we found : ", err)
+        fmt.Println("while creating a saving info account file we found : ", err)
         return
     }
     defer file.Close()
@@ -59,14 +59,23 @@ func CreateSavingsFilesToStoreTheDB(){
 
 
 func CreateCurrentFilesToStoreTheDB(){
-    createFile := filepath.Join(current, "currentAccountDB.json")
+    createFile := filepath.Join(current, "currentAccountTransitionDB.json")
     file, err := os.Create(createFile)
     if err != nil{
-        fmt.Println("while creating an savings and current file we found : ", err)
+        fmt.Println("while creating an current file we found : ", err)
         return
     }
     defer file.Close()
     fmt.Println("Created current account files successfully")
+
+    createFile = filepath.Join(current, "infoAboutYourCurrentAccount.json")
+    file, err = os.Create(createFile)
+    if err != nil{
+        fmt.Println("while creating an current info account file we found : ", err)
+        return
+    }
+    defer file.Close()
+    fmt.Println("Created current info account account files successfully")
 }
 
 
