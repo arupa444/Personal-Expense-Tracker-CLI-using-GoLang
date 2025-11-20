@@ -59,3 +59,5 @@ func CreateCurrentFilesToStoreTheDB(){
     defer file.Close()
     fmt.Println("Created current account files successfully")
 }
+
+
