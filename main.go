@@ -1,11 +1,12 @@
 package main
 
-// import (
-//     "github.com/arupa444/Personal-Expense-Tracker-CLI-using-GoLang/utils/createAndDeleteDir"
-// )
+import (
+    "github.com/arupa444/Personal-Expense-Tracker-CLI-using-GoLang/config/createAndDeleteDir"
+)
 
 func main(){
-// directory creation
+
+// // directory creation
 // //     To create the saving account dir
 //     dirMod.CreateSavingsDirectoriesToStoreTheDB()
 // //     To create the saving account file in the dir
